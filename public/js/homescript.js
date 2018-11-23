@@ -7,30 +7,36 @@ function SelectImg() {
     image.src=url;
 }
 
-function nextImg(){
-    var x = parseInt(document.getElementById("SelectTime").value);
-    console.log(x);
-    x +=1
-    if(x>4){
-        x=0;
+function getNextImg(x,op){
+    var index = x.slice(-8,-4);
+    if(op=="next"){
+        index = parseInt(index)+1;
+    
     }
-    console.log(x);
-    var url = "images/se1_b08_"+('00000'+x).slice(-5)+".jpg"
+    if(op=="prev"){
+        index = parseInt(index)-1;
+    }
+    index = ("0000"+index).slice(-4);
+    var newUrl = x.slice(0,-8)+index+".jpg";
+    return newUrl;
+}
+
+function nextImg(){
+    var x = document.getElementById("myImg").src;
+    var url = getNextImg(x,'next');
     var image = document.getElementById("myImg");
     image.src=url;
-    document.getElementById('SelectTime').selectedIndex=x;
+    var idx = parseInt(url.slice(-8,-4));
+    console.log(idx);
+    document.getElementById('SelectTime').selectedIndex=idx; 
 }
 
 function prevImg(){
-    var x = parseInt(document.getElementById("SelectTime").value);
+    var x = document.getElementById("myImg").src;
     console.log(x);
-    x -=1
-    if(x<0){
-        x=4;
-    }
-    console.log(x);
-    var url = "images/se1_b08_"+('00000'+x).slice(-5)+".jpg"
+    var url = getNextImg(x,'prev')
     var image = document.getElementById("myImg");
-    image.src=url;
-    document.getElementById('SelectTime').selectedIndex=x; 
+    var idx = parseInt(url.slice(-8,-4));
+    console.log(idx);
+    document.getElementById('SelectTime').selectedIndex=idx; 
 }

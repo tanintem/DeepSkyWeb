@@ -19,15 +19,18 @@
            
    <div class="form-group">
     <label for="SelectTime">Time select</label>
-    <select class="form-control" id="SelectTime" onchange="SelectImg()" >
+    <select class="form-control" id="SelectTime" onchange="SelectImg()" >z`
         @foreach($dropdown as $option)
         <option value= {{$option->url}}>{{$option->str}}</option>
         @endforeach
     </select>
     </div>
+
     <div class="container">
-        <img id="myImg" src="{{url($dropdown[0]->url)}}">
-    </div>  
+    <button onclick="prevImg()" class="btn btn-primary">prev</button>
+    <img id="myImg" src="{{url($dropdown[0]->url)}}">
+    <button onclick="nextImg()" class="btn btn-primary">next</button>
+    </div>
 
     <body>
 </html> 
