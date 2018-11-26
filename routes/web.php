@@ -15,5 +15,11 @@ Route::get('/', function () {
     return view('home');
 });
 
-Route::get('/img','ImgControl@show');
+Route::get('/home','ImgControl@show');
+
+
+Route::get('/RealTime','ImgControl@showReal');
+
+Route::get('/Prediction','ImgControl@showPredict');
+
 

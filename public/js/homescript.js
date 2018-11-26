@@ -9,12 +9,24 @@ function SelectImg() {
 
 function getNextImg(x,op){
     var index = x.slice(-8,-4);
-    if(op=="next"){
-        index = parseInt(index)+1;
+    var len = document.getElementById("SelectTime").length;
+    console.log(len);
     
+    if(op=="next"){
+        if(index == len-1){
+            index = 0;
+        }
+        else{
+             index = parseInt(index)+1;
+        }
     }
     if(op=="prev"){
-        index = parseInt(index)-1;
+        if(index == 0){
+            index = len-1;
+        }
+        else{
+            index = parseInt(index)-1;
+        }
     }
     index = ("0000"+index).slice(-4);
     var newUrl = x.slice(0,-8)+index+".jpg";
@@ -36,7 +48,9 @@ function prevImg(){
     console.log(x);
     var url = getNextImg(x,'prev')
     var image = document.getElementById("myImg");
+    image.src=url;
     var idx = parseInt(url.slice(-8,-4));
     console.log(idx);
     document.getElementById('SelectTime').selectedIndex=idx; 
 }
+
