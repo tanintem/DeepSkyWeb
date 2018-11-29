@@ -11,7 +11,6 @@ class ImgControl extends Controller
     public function showReal()
     {
         $dropdown=[];
-        $time = range(0,4);
         $dir = Storage::Files('public/images/');
         sort($dir);
         foreach($dir as $url){
@@ -23,13 +22,12 @@ class ImgControl extends Controller
         //return "<img src='".$url."'.>";
         //print_r($dropdown);
         //echo($dir[0]);
-        return view('realtimeImg',compact('dropdown'));
+        return view('realtimeImg',compact('dropdown','bg'));
     }
 
     public function showPredict()
     {
         $dropdown=[];
-        $time = range(0,4);
         $dir = Storage::Files('public/prediction/');
         sort($dir);
         foreach($dir as $url){
@@ -41,8 +39,11 @@ class ImgControl extends Controller
         //return "<img src='".$url."'.>";
         //print_r($dropdown);
         //echo($dir[0]);
+           
         return view('predictImg',compact('dropdown'));
     }
+
+    
 }
 
 class option extends ImgControl
@@ -50,11 +51,17 @@ class option extends ImgControl
     var $url;
     var $str;
     function __construct($url) {
-       $this->str = substr($url,-9,5);
        $this->url = $url;
+       $time = $this->get_time_format($url);
+       $this->str = $time." UTC";
     }
-    // public function get_str(){
-    //     $str = substr($url,-9,5);
-    //     return $str;
-    // }
+    
+    public function get_time_format($url){
+        $hour = substr($url,-8,2);
+        $min = substr($url,-6,2);
+        $time = $hour.":".$min;
+        //echo($time."<br>");
+        return $time;
+    }
+
 }
