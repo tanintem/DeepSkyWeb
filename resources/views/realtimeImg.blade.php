@@ -6,11 +6,11 @@
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
         <link rel="stylesheet" href="css/mainStyle.css" type="text/css">
     </head>
-    <body>
+    <body onload="myInit()>
                 
     <nav aria-label="breadcrumb">
     <ol class="breadcrumb" style="background-color:#87CEEB;">
-        <li class="breadcrumb-item"><a style="color:black" href="RealTime/">Real Time Image</a></li>
+        <li class="breadcrumb-item"><a style="color:black" href="RealTime/"><a>Real Time Image</a></li>
         <li class="breadcrumb-item"><a href="Prediction">Prediction</a></li>
     </ol>
     </nav>
@@ -36,7 +36,11 @@
                     <button onclick="prevImg()" class="btn-next btn btn-light btn-lg btn-block"><</button>
                 </div>
                 <div>
-                    <img id="myImg" class="img-fluid" alt="Responsive image" src="{{url($dropdown[0]->url)}}">
+                    <img id="myImg" class="img-fluid" alt="Responsive image" src="{{url($dropdown[$num]->url)}}">
+                    <br>
+                    <button type="button" class="btn btn-secondary btn-sm" onclick="goRealTime()">Real Time</button>
+                    <button type="button" class="btn btn-primary btn-sm" style="float: right;" onclick="goPredict()">Prediction</button>
+
                 </div>
                 <div class="col-" >
                     <button onclick="nextImg()" class="btn-next btn btn-light btn-lg btn-block">></button>
@@ -44,5 +48,10 @@
             </div>
 
     </div>
+
+    <script>
+        document.getElementById('SelectTime').selectedIndex={{$num}};
+    </script>
+
     <body>
 </html> 

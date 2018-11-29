@@ -34,3 +34,22 @@ function prevImg(){
     image.src=select.value;
 }
 
+function goRealTime(){
+    var index = document.getElementById("SelectTime").selectedIndex;
+    window.location.href = "/RealTime"+index;
+
+}
+
+function goPredict(){
+    var index = document.getElementById("SelectTime").selectedIndex;
+    window.location.href = "/Prediction"+index;
+
+}
+
+function myInit(){
+    var x = document.getElementById("SelectTime").value;
+    var image = document.getElementById("myImg");
+    //var url ="images/se1_b08_"+x+".jpg";
+    var url = x;
+    image.src=url;
+}

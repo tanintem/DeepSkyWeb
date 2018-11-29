@@ -18,8 +18,8 @@ Route::get('/', function () {
 Route::get('/home','ImgControl@show');
 
 
-Route::get('/RealTime','ImgControl@showReal');
+Route::get('/RealTime{num}','ImgControl@showReal');
 
-Route::get('/Prediction','ImgControl@showPredict');
+Route::get('/Prediction{num}','ImgControl@showPredict');
 
 

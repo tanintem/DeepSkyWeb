@@ -8,7 +8,7 @@ class ImgControl extends Controller
 {
     //
 
-    public function showReal()
+    public function showReal($num)
     {
         $dropdown=[];
         $dir = Storage::Files('public/images/');
@@ -22,10 +22,10 @@ class ImgControl extends Controller
         //return "<img src='".$url."'.>";
         //print_r($dropdown);
         //echo($dir[0]);
-        return view('realtimeImg',compact('dropdown','bg'));
+        return view('realtimeImg',compact('dropdown','num'));
     }
 
-    public function showPredict()
+    public function showPredict($num)
     {
         $dropdown=[];
         $dir = Storage::Files('public/prediction/');
@@ -40,7 +40,7 @@ class ImgControl extends Controller
         //print_r($dropdown);
         //echo($dir[0]);
            
-        return view('predictImg',compact('dropdown'));
+        return view('predictImg',compact('dropdown','num'));
     }
 
     
