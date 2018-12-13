@@ -17,11 +17,6 @@ class ImgControl extends Controller
             $option =  new option(Storage::url($url));
             $dropdown[] = $option;
         }
-        
-        //$url = Storage::url('images/se1_b08_00000.jpg');
-        //return "<img src='".$url."'.>";
-        //print_r($dropdown);
-        //echo($dir[0]);
         return view('realtimeImg',compact('dropdown','num'));
     }
 
@@ -34,19 +29,34 @@ class ImgControl extends Controller
             $option =  new option(Storage::url($url));
             $dropdown[] = $option;
         }
-        
-        //$url = Storage::url('images/se1_b08_00000.jpg');
-        //return "<img src='".$url."'.>";
-        //print_r($dropdown);
-        //echo($dir[0]);
-           
         return view('predictImg',compact('dropdown','num'));
     }
 
-    
+    public function showCompare($real_time,$pred_time)
+    {
+        $dropdown = [];
+        $real_dir = Storage::Files('public/images/');
+        sort($real_dir);
+        if($pred_time==0){
+            $predict_dir = Storage::Files('public/prediction');
+        }
+        elseif($pred_time==1){
+            $predict_dir = Storage::Files('public/next-1hr');
+        }
+        sort($predict_dir);
+        $length= sizeof($predict_dir);
+        for($i=0; $i<$length; $i++){
+            //$r_time=substr($real_dir[$r_count+$i],-8,4);
+            $option = new option_duo(Storage::url($real_dir[$i]),Storage::url($predict_dir[$i]),$i);
+            $dropdown[] = $option;
+        }
+        //print_r($dropdown);
+        $marker=Storage::url('public/marker/donmuangmask.png');
+        return view('compare',compact('dropdown','real_time','pred_time','marker'));
+    }
 }
 
-class option extends ImgControl
+class option //extends ImgControl
 {
     var $url;
     var $str;
@@ -65,3 +75,19 @@ class option extends ImgControl
     }
 
 }
+
+class option_duo extends option
+{
+
+    var $pred_url;
+    var $combine;
+    function __construct($url,$pred_url,$index){
+        $this->index = (string) $index;
+        $this->url = $url;
+        $this->pred_url = $pred_url;
+        $this->combine = $url.":".$pred_url;
+        $time = $this->get_time_format($url);
+        $this->str = $time." UTC";
+    }
+}
+

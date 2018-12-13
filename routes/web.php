@@ -22,4 +22,6 @@ Route::get('/RealTime{num}','ImgControl@showReal');
 
 Route::get('/Prediction{num}','ImgControl@showPredict');
 
+Route::get('/compare{real_time}-{pred_time}','ImgControl@showCompare');
+
 

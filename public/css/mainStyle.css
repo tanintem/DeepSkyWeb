@@ -1,9 +1,10 @@
 @media screen and (min-width: 768px) { 
 
     .form-control{
-        width:700px;
+        display: inline-block
     }
 
+   
     select{
         display:block;
         margin:0 auto;
@@ -16,6 +17,12 @@
         padding: 20px;
         font-size: 50px;
         font: Console;
+    }
+
+    .sm-btn-next{
+        font-size: 30px;
+        font: Console;
+        padding:0px;
     }
     
 }
@@ -30,15 +37,21 @@
     }
 }
 
+@media screen and (max-width:665px){
+    .sm-select{
+        widows: 350px;
+    }
+}
+
 div{
      /* border: 1 px solid green; */
-    
+    margin:5px;
     /* ใส่ background สวยๆ */
 }
 
 label{
     display: block;
-    text-align: center;;
+    /* text-align: center;; */
 }
 
 .center {
@@ -57,6 +70,11 @@ h3{
     background-color:whitesmoke;
     /* border-style: solid; */
 }
+.sub-content{
+    background-color:#e6eeff;
+    padding:5px; 
+}
+
 .mid-content{
     width:90%;
     display:block;

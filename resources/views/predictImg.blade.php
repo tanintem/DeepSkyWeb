@@ -10,6 +10,7 @@
                 
     <nav aria-label="breadcrumb">
     <ol class="breadcrumb" style="background-color:#87CEEB;">
+        <li class="breadcrumb-item"><a href="Home">Home</a></li>
         <li class="breadcrumb-item"><a style="color:black" href="RealTime/"><a>Real Time Image</a></li>
         <li class="breadcrumb-item"><a href="Prediction">Prediction</a></li>
     </ol>
