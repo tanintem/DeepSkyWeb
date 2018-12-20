@@ -54,8 +54,8 @@
             </div>
 
             <div class = "col-md5 sub-content" >
-                    <div class="row light-bg">
-                        <div class="col-md">
+                    <div class="row">
+                        <div class="col-md  ">
                         <h3>Real Time Image</h3><br>
                         <img id="myImg" class="img-fluid" src="{{url($dropdown[$real_time]->url)}}"width="679">
                         </div >

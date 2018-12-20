@@ -4,9 +4,6 @@
         display: inline-block
     }
 
-    .menu-zone{
-        width:20%;
-    }
    
     select{
         display:block;
@@ -26,9 +23,6 @@
         font-size: 30px;
         font: Console;
         padding:0px;
-    }
-    .light-bg{
-        /* padding-left:5%; */
     }
     
 }
@@ -51,7 +45,7 @@
 
 div{
      /* border: 1 px solid green; */
-    /* margin:5px; */
+    margin:5px;
     /* ใส่ background สวยๆ */
 }
 
@@ -68,7 +62,7 @@ label{
 }
 
 h3{
-    /* text-align: center; */
+    text-align: center;
 }
 
 .display{
@@ -87,141 +81,3 @@ h3{
     margin:0 auto;
 }
 
-.fit-content{
-    display: inline-block;
-}
-
-.mid-img{
-    display: block;
-    margin-left: auto;
-    margin-right: auto ;
-}
-
-article{
-    position: fixed;
-    width: 70%;
-    left:0;
-    right:0;
-    bottom:0;
-    padding:30px 15%;
-    background-color:orange;
-    overflow: auto;
-    z-index:0;
-    transform-origin: 0 50%;
-
-}
-
-article:after{
-    position: absolute;
-    content:'';
-    left:100%;
-    top:0;
-    right: 0;
-    bottom:0;
-}
-
-.slide_nav{
-    position:fixed;
-    left:-20em;
-    top:0;
-    bottom:0;
-    background-color:rgb(82, 170, 252, 0.6);
-    border-right:40px solid rgb(82, 170, 252, 0.6);
-    box-shadow:5px 0 5px rgba(0,0,0,0.2);
-    z-index:1;
-    
-}
-.slide_nav:after{
-    position:absolute;
-    content:'';
-    width : 0;
-    height : 0;
-    right : -70px;
-    top : 50%;
-    border-width:15px 15px;
-    border-style: solid;
-    border-color: transparent transparent transparent rgb(82, 170, 252, 0.6);
-
-}
-
-nav ul {
-    width: 15em;
-    list-style-type: none;
-    font-size:20px;
-
-}
-article, article:after,nav,nav * {
-    transition: all 1000ms ease;
-}
-nav:hover {
-    left:0;
-}
-nav:hover ~ article:after{
-    left:60%;
-}
-nav li {
-    color:black;
-    padding:5%;
-}
-
-.light-bg{
-    background: rgba(0, 41, 77, 0.6);
-    padding-bottom:1%;
-    padding-top:1%;
-    margin-top: 2%;
-    color: white;
-}
-
-.light-bg2{
-    background-color: rgba(196, 225, 252, 0.6);
-    padding-bottom:1%;
-    padding-top:1%;
-    margin-top: 2%;
-    color: black;
-}
-
-body{
-    background-repeat: no-repeat;
-    background-size: 100% 100%;
-    background-color: rgba(0, 41, 77, 0.8);
-}
-
-.light-nav{
-    background-color: rgba(196, 225, 252, 0.6);
-}
-
-.blue-nav{
-    background-color: rgba(0,113,188,0.6);
-}
-
-.logo{
-    height: auto;
-    width: auto;
-    max-height: 72px;
-}
-
-.menu{
-    background-color: rgba(196, 225, 252, 0.6);
-}
-
-.nav-div{
-    width:250px;
-    color:white;
-    margin-right:10px;
-}
-
-.big-nav-div{
-    width:500px;
-}
-
-.white-btn{
-    background-color:white;
-    color:black;
-    border:2px black;
-    /* height:40px; */
-}
-
-.big-article{
-    font-size:30;
-
-}

@@ -7,29 +7,6 @@ function SelectImg() {
     image.src=url;
 }
 
-function showTime(){
-    var option = document.getElementById("SelectTime");
-    var time = option.options[option.selectedIndex].text;
-    var show_satellite_time = document.getElementById('SatelliteTime')
-    show_satellite_time.innerText=time;
-
-    var show_prediction_time = document.getElementById("PredictionTime");
-    var PredictionLength = document.getElementById("PredictLength").selectedIndex;
-    if(PredictionLength==0){
-        show_prediction_time.innerText=time;
-    }
-    else{
-        var hour = time.split(":");
-        var new_time = parseInt(hour[0])+1;
-        var pre_time = "000000000" + new_time.toString()
-        var prediction_time = pre_time.substr(pre_time.length-2) +":"+ hour[1];
-        console.log(prediction_time);
-        show_prediction_time.innerText=prediction_time;
-    }
-
-}
-
-
 function SelectDuo(){
     var input = document.getElementById("SelectTime").value;
     var real_image = document.getElementById("myImg");
@@ -38,8 +15,6 @@ function SelectDuo(){
     console.log(url);
     real_image.src=url[0];
     pred_img.src=url[1];
-    showTime();
-    get_rain_chance()
 }
 
 function nextImg(){
@@ -71,7 +46,8 @@ function next_duo(){
     SelectDuo();
     var select = document.getElementById("SelectTime");
     var index = select.selectedIndex;
-
+    var real_image = document.getElementById("myImg");
+    var pred_img = document.getElementById("myPred");
     index +=1;
     if(index>select.length-1){
         index = 0;
@@ -84,7 +60,8 @@ function prev_duo(){
     SelectDuo();
     var select = document.getElementById("SelectTime");
     var index = select.selectedIndex;
-
+    var real_image = document.getElementById("myImg");
+    var pred_img = document.getElementById("myPred");
     index -=1;
     if(index<0){
         index = select.length-1;
@@ -109,13 +86,5 @@ function goPredict(){
 function select_predict_ength(){
     var index_pred = document.getElementById("PredictLength").selectedIndex;
     var index_time = document.getElementById("SelectTime").selectedIndex;
-    window.location.href = "/newShow"+index_time+"-"+index_pred;
-}
-
-function get_rain_chance(){
-    var random= Math.random()+Math.random();
-    var rain_chance=document.getElementById("rain_chance");
-    var chance = 5+random;
-    rain_chance.innerHTML=chance.toFixed(2);
-    console.log("random="+random);
+    window.location.href = "/compare"+index_time+"-"+index_pred;
 }

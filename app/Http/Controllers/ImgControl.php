@@ -54,6 +54,7 @@ class ImgControl extends Controller
         $marker=Storage::url('public/marker/donmuangmask.png');
         return view('compare',compact('dropdown','real_time','pred_time','marker'));
     }
+<<<<<<< HEAD
 
     public function newShow($real_time,$pred_time)
     {
@@ -78,6 +79,8 @@ class ImgControl extends Controller
         $logo=Storage::url('storage/images/marker/logo-white.png');
         return view('newShow',compact('dropdown','real_time','pred_time','marker','logo'));
     }
+=======
+>>>>>>> parent of 9dde932... first deploy
 }
 
 class option //extends ImgControl
