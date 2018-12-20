@@ -54,30 +54,6 @@ class ImgControl extends Controller
         $marker=Storage::url('public/marker/donmuangmask.png');
         return view('compare',compact('dropdown','real_time','pred_time','marker'));
     }
-
-    public function newShow($real_time,$pred_time)
-    {
-        $dropdown = [];
-        $real_dir = Storage::Files('public/images/');
-        sort($real_dir);
-        if($pred_time==0){
-            $predict_dir = Storage::Files('public/prediction');
-        }
-        elseif($pred_time==1){
-            $predict_dir = Storage::Files('public/next-1hr');
-        }
-        sort($predict_dir);
-        $length= sizeof($predict_dir);
-        for($i=0; $i<$length; $i++){
-            //$r_time=substr($real_dir[$r_count+$i],-8,4);
-            $option = new option_duo(Storage::url($real_dir[$i]),Storage::url($predict_dir[$i]),$i);
-            $dropdown[] = $option;
-        }
-        //print_r($dropdown);
-        $marker=Storage::url('public/marker/bigmarker.png');
-        $logo=Storage::url('public/marker/logo-white.png');
-        return view('newShow',compact('dropdown','real_time','pred_time','marker','logo'));
-    }
 }
 
 class option //extends ImgControl
