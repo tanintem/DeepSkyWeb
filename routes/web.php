@@ -12,7 +12,7 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('home');
 });
 
 Route::get('/home','ImgControl@show');
@@ -24,4 +24,4 @@ Route::get('/Prediction{num}','ImgControl@showPredict');
 
 Route::get('/compare{real_time}-{pred_time}','ImgControl@showCompare');
 
-
+Route::get('/newShow{real_time}-{pred_time}','ImgControl@newShow');
