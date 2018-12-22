@@ -58,7 +58,7 @@ class ImgControl extends Controller
     public function newShow($real_time,$pred_time)
     {
         $dropdown = [];
-        $real_dir = Storage::Files('public/images/');
+        $real_dir = Storage::Files('public/images');
         sort($real_dir);
         if($pred_time==0){
             $predict_dir = Storage::Files('public/prediction');
@@ -78,6 +78,9 @@ class ImgControl extends Controller
         $logo=Storage::url('public/marker/logo-white.png');
         return view('newShow',compact('dropdown','real_time','pred_time','marker','logo'));
     }
+
+    
+
 }
 
 class option //extends ImgControl
