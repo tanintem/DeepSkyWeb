@@ -69,14 +69,14 @@
                             <img id="myPred" class="img-fluid" src="{{url($dropdown[$real_time]->pred_url)}}" style="position: relative; top:0; left:0; " >
                             <img src="{{$marker}}" class="img-fluid" style="position: absolute; top:0; left:0; ">
                         </div>
-                        <a class="big-article">
+                        <!-- <a class="big-article">
                             Chance of raining:  
                         </a>
                         <a class="big-article" id="rain_chance">
                         </a>
                         <a class="big-article ">
                             %
-                        </a>
+                        </a> -->
                     </div>
                 </div>
 

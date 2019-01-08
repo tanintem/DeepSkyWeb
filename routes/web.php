@@ -27,3 +27,7 @@ Route::get('/compare{real_time}-{pred_time}','ImgControl@showCompare');
 Route::get('/newShow{real_time}-{pred_time}','ImgControl@newShow');
 
 Route::get('/file','test@filesystem');
+
+Route::get('/upload','uploadController@index');
+//Route::get('/store','uploadController@storepage');
+Route::post('/store','uploadController@store');
