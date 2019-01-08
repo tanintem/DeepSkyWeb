@@ -12,7 +12,7 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return redirect('/newShow0-0');
 });
 
 Route::get('/home','ImgControl@show');
