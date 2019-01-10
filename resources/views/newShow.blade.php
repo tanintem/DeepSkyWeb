@@ -94,7 +94,7 @@
         document.getElementById('SelectTime').selectedIndex={{$real_time}};
         document.getElementById('PredictLength').selectedIndex={{$pred_time}};
         showTime();
-        get_rain_chance();
+        // get_rain_chance();
     </script>
    
 </body>

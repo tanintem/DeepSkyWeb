@@ -39,7 +39,6 @@ function SelectDuo(){
     real_image.src=url[0];
     pred_img.src=url[1];
     showTime();
-    get_rain_chance()
 }
 
 function nextImg(){
@@ -112,10 +111,3 @@ function select_predict_ength(){
     window.location.href = "/newShow"+index_time+"-"+index_pred;
 }
 
-function get_rain_chance(){
-    var random= Math.random()+Math.random();
-    var rain_chance=document.getElementById("rain_chance");
-    var chance = 5+random;
-    rain_chance.innerHTML=chance.toFixed(2);
-    console.log("random="+random);
-}
