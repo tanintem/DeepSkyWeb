@@ -60,13 +60,18 @@ class ImgControl extends Controller
         $dropdown = [];
         $real_dir = Storage::Files('images/');
         sort($real_dir);
-        if($pred_time==0){
-            $predict_dir = Storage::Files('prediction');
-        }
-        elseif($pred_time==1){
-            $predict_dir = Storage::Files('next-1hr');
-        }
+        // if($pred_time==0){
+        //     $predict_dir = Storage::Files('prediction');
+        // }
+        // elseif($pred_time==1){
+        //     $predict_dir = Storage::Files('next-1hr');
+        // }
+        $predict_dir=Storage::Files('next-1hr');
         sort($predict_dir);
+        if($pred_time==0){
+            $predict_dir = array_rotate($predict_dir,-6);
+        }    
+
         $length= sizeof($predict_dir);
         for($i=0; $i<$length; $i++){
             //$r_time=substr($real_dir[$r_count+$i],-8,4);
@@ -76,12 +81,26 @@ class ImgControl extends Controller
         //print_r($dropdown);
         $marker=Storage::url('marker/bigmarker.png');
         $logo=Storage::url('marker/logo-white.png');
+        // foreach($predict_dir as $dir){
+        //     echo($dir);
+        //     echo("<br>");
+        // }
+
         return view('newShow',compact('dropdown','real_time','pred_time','marker','logo'));
     }
 
-    
-}
 
+}
+function array_rotate($array, $shift) {
+    if(!is_array($array) || !is_numeric($shift)) {
+        if(!is_array($array)) error_log(__FUNCTION__.' expects first argument to be array; '.gettype($array).' received.');
+        if(!is_numeric($shift)) error_log(__FUNCTION__.' expects second argument to be numeric; '.gettype($shift)." `$shift` received.");
+        return $array;
+    }
+    $shift %= count($array); //we won't try to shift more than one array length
+    if($shift < 0) $shift += count($array);//handle negative shifts as positive
+    return array_merge(array_slice($array, $shift, NULL, true), array_slice($array, 0, $shift, true));
+}
 class option //extends ImgControl
 {
     var $url;
