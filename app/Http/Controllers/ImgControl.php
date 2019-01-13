@@ -66,7 +66,7 @@ class ImgControl extends Controller
         // elseif($pred_time==1){
         //     $predict_dir = Storage::Files('next-1hr');
         // }
-        $predict_dir=Storage::Files('next-1hr');
+        $predict_dir=Storage::Files('next-1hr',SORT_STRING);
         sort($predict_dir);
         if($pred_time==0){
             $predict_dir = array_rotate($predict_dir,-6);
