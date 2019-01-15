@@ -29,6 +29,8 @@
                 <select class="form-control " id="PredictLength" onchange="select_predict_ength()" >
                     <option value="" > compare result </option>
                     <option value="">next 1 hour</option>
+                    <option value="">next 2 hour</option>
+                    <option value="">next 3 hour</option>
                 </select>
                 
                 <br><br><br>
