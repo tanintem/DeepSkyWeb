@@ -38,7 +38,7 @@ class ImgControl extends Controller
         $plist=[];
         $rlist=[];
         $real_dir = Storage::Files('images/');
-        sort($real_dir);
+        sort($real_dir,SORT_STRING);
         $predict_dir=Storage::Files('next-1hr');
         sort($predict_dir,SORT_STRING);
         if($pred_time==2){
