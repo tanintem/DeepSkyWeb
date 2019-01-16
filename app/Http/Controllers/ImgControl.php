@@ -58,19 +58,12 @@ class ImgControl extends Controller
     public function newShow($real_time,$pred_time)
     {
         $dropdown = [];
+        $plist=[];
+        $rlist=[];
         $real_dir = Storage::Files('images/');
         sort($real_dir);
-        // if($pred_time==0){
-        //     $predict_dir = Storage::Files('prediction');
-        // }
-        // elseif($pred_time==1){
-        //     $predict_dir = Storage::Files('next-1hr');
-        // }
         $predict_dir=Storage::Files('next-1hr');
         sort($predict_dir,SORT_STRING);
-        if($pred_time==0){
-            $predict_dir = array_rotate($predict_dir,-6);
-        }   
         if($pred_time==2){
             $predict_dir = Storage::Files('next-2hr');
             sort($predict_dir,SORT_STRING);
@@ -79,10 +72,42 @@ class ImgControl extends Controller
             $predict_dir = Storage::Files('next-3hr');
             sort($predict_dir,SORT_STRING);
         }
-        $length= sizeof($predict_dir);
-        for($i=0; $i<$length; $i++){
+        $plength = sizeof($predict_dir);
+        $rlength = sizeof($real_dir); 
+        $rc=0;
+        $pc=0;
+        $count=0;
+        
+        while($rc<$rlength&&$pc<$plength){
+            $r_time=substr($real_dir[$rc],-8,4);
+            $p_time=substr($predict_dir[$pc],-8,4);
+            $compare = strcmp($r_time,$p_time);
+            if($compare==0){
+                $plist[]=$predict_dir[$pc];
+                $rlist[]=$real_dir[$rc];
+                //echo($predict_dir[$pc]."  ".$real_dir[$rc]."<br>");
+                $rc++;
+                $pc++;
+                $count++;
+            }
+            elseif($compare<0){
+                $rc++;
+            }
+            else{
+                $pc++;
+            }
+            // elseif($compare>0){
+            //     $pc++;
+            // }
+        }
+
+        if($pred_time==0){
+            $plist = array_rotate($plist,-6);
+        }   
+
+        for($i=0; $i<$count; $i++){
             //$r_time=substr($real_dir[$r_count+$i],-8,4);
-            $option = new option_duo(Storage::url($real_dir[$i]),Storage::url($predict_dir[$i]),$i);
+            $option = new option_duo(Storage::url($rlist[$i]),Storage::url($plist[$i]),$i);
             $dropdown[] = $option;
         }
         //print_r($dropdown);
