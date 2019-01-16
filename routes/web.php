@@ -12,8 +12,14 @@
 */
 
 Route::get('/', function () {
+    // $exitCode = Artisan::call('cache:clear');
     return redirect('/newShow0-0');
 });
+
+// Route::get('/newShow{real_time}-{pred_time}',function($real_time,$pred_time){
+//     $exitCode = Artisan::call('cache:clear');
+//     return redirect()->action('ImgControl@newShow',['real_time'=>1,'pred_time'=>2]);
+// });
 
 Route::get('/home','ImgControl@show');
 

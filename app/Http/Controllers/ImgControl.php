@@ -92,7 +92,7 @@ class ImgControl extends Controller
         //     echo($dir);
         //     echo("<br>");
         // }
-
+        exec('php /full/path/to/artisan view:clear');
         return view('newShow',compact('dropdown','real_time','pred_time','marker','logo'));
     }
 
