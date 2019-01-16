@@ -63,40 +63,40 @@ class ImgControl extends Controller
             if($compare==0){
                 $plist[]=$predict_dir[$pc];
                 $rlist[]=$real_dir[$rc];
-                echo($predict_dir[$pc]."  ".$real_dir[$rc]."<br>");
+                // echo($predict_dir[$pc]."  ".$real_dir[$rc]."<br>");
                 $rc++;
                 $pc++;
                 $count++;
             }
             elseif($compare<0){
                 $rc++;
-                echo("NO-".$predict_dir[$pc]."<br>");
+                // echo("NO-".$predict_dir[$pc]."<br>");
             }
 
             elseif($compare>0){
                 $pc++;
-                echo("No-".$real_dir[$rc]."<br>");
+                // echo("No-".$real_dir[$rc]."<br>");
             }
         }
 
-        // if($pred_time==0){
-        //     $plist = array_rotate($plist,-6);
-        // }   
+        if($pred_time==0){
+            $plist = array_rotate($plist,-6);
+        }   
 
-        // for($i=0; $i<$count; $i++){
-        //     //$r_time=substr($real_dir[$r_count+$i],-8,4);
-        //     $option = new option_duo(Storage::url($rlist[$i]),Storage::url($plist[$i]),$i);
-        //     $dropdown[] = $option;
-        // }
+        for($i=0; $i<$count; $i++){
+            //$r_time=substr($real_dir[$r_count+$i],-8,4);
+            $option = new option_duo(Storage::url($rlist[$i]),Storage::url($plist[$i]),$i);
+            $dropdown[] = $option;
+        }
         // //print_r($dropdown);
-        // $marker=Storage::url('marker/bigmarker.png');
-        // $logo=Storage::url('marker/logo-white.png');
+        $marker=Storage::url('marker/bigmarker.png');
+        $logo=Storage::url('marker/logo-white.png');
         // // foreach($predict_dir as $dir){
         // //     echo($dir);
         // //     echo("<br>");
         // // }
-        // exec('php /full/path/to/artisan view:clear');
-        // return view('newShow',compact('dropdown','real_time','pred_time','marker','logo'));
+        exec('php /full/path/to/artisan view:clear');
+        return view('newShow',compact('dropdown','real_time','pred_time','marker','logo'));
     }
 
 
