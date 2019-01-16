@@ -20,7 +20,7 @@ function showTime(){
     }
     else{
         var hour = time.split(":");
-        var new_time = parseInt(hour[0])+1;
+        var new_time = parseInt(hour[0])+PredictionLength; //บรรทัดนี้บวกเวลาช่องขวา
         var pre_time = "000000000" + new_time.toString()
         var prediction_time = pre_time.substr(pre_time.length-2) +":"+ hour[1];
         console.log(prediction_time);
