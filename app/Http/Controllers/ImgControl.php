@@ -80,20 +80,20 @@ class ImgControl extends Controller
         //     $plist = array_rotate($plist,-6);
         // }   
 
-        for($i=0; $i<$count; $i++){
-            //$r_time=substr($real_dir[$r_count+$i],-8,4);
-            $option = new option_duo(Storage::url($rlist[$i]),Storage::url($plist[$i]),$i);
-            $dropdown[] = $option;
-        }
-        //print_r($dropdown);
-        $marker=Storage::url('marker/bigmarker.png');
-        $logo=Storage::url('marker/logo-white.png');
-        // foreach($predict_dir as $dir){
-        //     echo($dir);
-        //     echo("<br>");
+        // for($i=0; $i<$count; $i++){
+        //     //$r_time=substr($real_dir[$r_count+$i],-8,4);
+        //     $option = new option_duo(Storage::url($rlist[$i]),Storage::url($plist[$i]),$i);
+        //     $dropdown[] = $option;
         // }
-        exec('php /full/path/to/artisan view:clear');
-        return view('newShow',compact('dropdown','real_time','pred_time','marker','logo'));
+        // //print_r($dropdown);
+        // $marker=Storage::url('marker/bigmarker.png');
+        // $logo=Storage::url('marker/logo-white.png');
+        // // foreach($predict_dir as $dir){
+        // //     echo($dir);
+        // //     echo("<br>");
+        // // }
+        // exec('php /full/path/to/artisan view:clear');
+        // return view('newShow',compact('dropdown','real_time','pred_time','marker','logo'));
     }
 
 
