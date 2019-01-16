@@ -54,7 +54,8 @@ class ImgControl extends Controller
         $rc=0;
         $pc=0;
         $count=0;
-        
+        print_r($real_dir);
+        print_r($predict_dir);
         while($rc<$rlength&&$pc<$plength){
             $r_time=substr($real_dir[$rc],-8,4);
             $p_time=substr($predict_dir[$pc],-8,4);
