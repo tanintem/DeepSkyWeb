@@ -32,29 +32,6 @@ class ImgControl extends Controller
         return view('predictImg',compact('dropdown','num'));
     }
 
-    // public function showCompare($real_time,$pred_time)
-    // {
-    //     $dropdown = [];
-    //     $real_dir = Storage::Files('public/images/');
-    //     sort($real_dir);
-    //     if($pred_time==0){
-    //         $predict_dir = Storage::Files('public/prediction');
-    //     }
-    //     elseif($pred_time==1){
-    //         $predict_dir = Storage::Files('public/next-1hr');
-    //     }
-    //     sort($predict_dir);
-    //     $length= sizeof($predict_dir);
-    //     for($i=0; $i<$length; $i++){
-    //         //$r_time=substr($real_dir[$r_count+$i],-8,4);
-    //         $option = new option_duo(Storage::url($real_dir[$i]),Storage::url($predict_dir[$i]),$i);
-    //         $dropdown[] = $option;
-    //     }
-    //     //print_r($dropdown);
-    //     $marker=Storage::url('public/marker/donmuangmask.png');
-    //     return view('compare',compact('dropdown','real_time','pred_time','marker'));
-    // }
-
     public function newShow($real_time,$pred_time)
     {
         $dropdown = [];
@@ -85,7 +62,7 @@ class ImgControl extends Controller
             if($compare==0){
                 $plist[]=$predict_dir[$pc];
                 $rlist[]=$real_dir[$rc];
-                //echo($predict_dir[$pc]."  ".$real_dir[$rc]."<br>");
+                echo($predict_dir[$pc]."  ".$real_dir[$rc]."<br>");
                 $rc++;
                 $pc++;
                 $count++;
@@ -93,17 +70,15 @@ class ImgControl extends Controller
             elseif($compare<0){
                 $rc++;
             }
-            else{
+
+            elseif($compare>0){
                 $pc++;
             }
-            // elseif($compare>0){
-            //     $pc++;
-            // }
         }
 
-        if($pred_time==0){
-            $plist = array_rotate($plist,-6);
-        }   
+        // if($pred_time==0){
+        //     $plist = array_rotate($plist,-6);
+        // }   
 
         for($i=0; $i<$count; $i++){
             //$r_time=substr($real_dir[$r_count+$i],-8,4);
