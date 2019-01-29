@@ -13,7 +13,7 @@
 
 Route::get('/', function () {
     // $exitCode = Artisan::call('cache:clear');
-    return redirect('/newShow0-0');
+    return redirect('/index');
 });
 
 // Route::get('/newShow{real_time}-{pred_time}',function($real_time,$pred_time){
