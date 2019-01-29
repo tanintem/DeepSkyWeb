@@ -12,7 +12,7 @@
     </nav>
 
 
-    <div class = "row">
+    <div class = "row"style="margin-right:0; padding-right:0;">
        
         <div class="col-2 light-bg2">
             <div class="form-group container ">
@@ -89,7 +89,7 @@
     </div>
 
         
-
+    
 
 
     <script>

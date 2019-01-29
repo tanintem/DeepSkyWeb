@@ -8,28 +8,20 @@ class ImgControl extends Controller
 {
     //
 
-    public function showReal($num)
+    public function showPredict()
     {
-        $dropdown=[];
-        $dir = Storage::Files('public/images/');
+        $imgSrcList1=[];
+        $imgSrcList2=[];
+        $imgSrcList3=[];
+        $dir = Storage::Files('next-1hr/');
         sort($dir);
         foreach($dir as $url){
-            $option =  new option(Storage::url($url));
-            $dropdown[] = $option;
+            $url =  new option(Storage::url($url));
+            $imgSrcList1[] = $url;
         }
-        return view('realtimeImg',compact('dropdown','num'));
-    }
-
-    public function showPredict($num)
-    {
-        $dropdown=[];
-        $dir = Storage::Files('public/prediction/');
-        sort($dir);
-        foreach($dir as $url){
-            $option =  new option(Storage::url($url));
-            $dropdown[] = $option;
-        }
-        return view('predictImg',compact('dropdown','num'));
+        
+        print_r($imgSrcList);
+        return view('index',compact('imgSrcList'));
     }
 
     public function newShow($real_time,$pred_time)
@@ -99,8 +91,17 @@ class ImgControl extends Controller
         return view('newShow',compact('dropdown','real_time','pred_time','marker','logo'));
     }
 
+    public function imgSlideshow(){
+        $predict_set_dir = Storage::Files('prediction_set');
+        sort($predict_set_dir,SORT_STRING);
+        
+        return view('slideShow');
+    }
 
 }
+
+
+
 function array_rotate($array, $shift) {
     if(!is_array($array) || !is_numeric($shift)) {
         if(!is_array($array)) error_log(__FUNCTION__.' expects first argument to be array; '.gettype($array).' received.');

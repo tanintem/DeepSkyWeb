@@ -26,7 +26,7 @@ Route::get('/home','ImgControl@show');
 
 Route::get('/RealTime{num}','ImgControl@showReal');
 
-Route::get('/Prediction{num}','ImgControl@showPredict');
+Route::get('/Prediction','ImgControl@showPredict');
 
 Route::get('/compare{real_time}-{pred_time}','ImgControl@showCompare');
 
@@ -37,3 +37,9 @@ Route::get('/file','test@filesystem');
 Route::get('/upload','uploadController@index');
 //Route::get('/store','uploadController@storepage');
 Route::post('/store','uploadController@store');
+
+Route::get('/slideshow','ImgControl@newShow');
+
+Route::get('/index', function(){
+    return view('index');
+});

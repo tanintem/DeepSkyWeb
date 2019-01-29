@@ -110,4 +110,54 @@ function select_predict_ength(){
     var index_time = document.getElementById("SelectTime").selectedIndex;
     window.location.href = "/newShow"+index_time+"-"+index_pred;
 }
+//for new UI
+function active_radio(){
+    var hour = document.configControl.predictLength;
+    var minute = document.getElementById("inputAddNextMin");
+    minute.value=50;
+    var select_hour = 0;
+    var select_minute = 0;
 
+    for(var i = 0; i < hour.length; i++) {
+        hour[i].onclick = function () {
+            //console.log(this.value)
+            select_hour = this.value;
+            change_image(select_hour,select_minute)
+            if(select_hour==3){
+                $(minute).val(0)
+            }
+        };
+    }
+    minute.onchange = function(){
+        //console.log(this.value)
+        if(select_minute==0 && this.value==0 &&select_hour>0){
+            console.log(50);
+            $(this).val(50);
+            select_hour-=1;
+            hour[select_hour].checked=true;
+        }
+        if(this.value == 60 && select_hour<3){
+            $(this).val(0);
+            select_hour+=1;
+            hour[select_hour].checked=true;
+        }
+        if(select_hour==3){
+            $(minute).val(0)
+        }
+        select_minute = this.value
+        change_image(select_hour,select_minute)
+        
+    };
+}
+
+function change_image(hour,minute){
+    var prediction_image = document.getElementById("predictImage");
+    var src = "/storage/next-"+hour+"hr/"+minute+".jpg";
+    console.log(src);
+    prediction_image.src=src;
+}
+
+function setTime(){
+    var minute = document.getElementById("inputAddNextMin");
+    minute.value="50";
+}
