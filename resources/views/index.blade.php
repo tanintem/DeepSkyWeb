@@ -108,7 +108,7 @@
                     </div>
                     <div class="row">
                       <div class="col-12">
-                        <img src="images/se1_b08_0140.jpg" alt="PredictedPic" class="image-fluid">
+                        <img src="storage/images/current.jpg" alt="PredictedPic" class="image-fluid">
                       </div>
                     </div>
                   </div>
@@ -130,7 +130,7 @@
                     </div>
                     <div class="row">
                       <div class="col-12">
-                        <img src="images/pd1_b08_0140.jpg" alt="PredictedPic" id="predictImage"class="image-fluid">
+                        <img src="storage/next-0hr/0.jpg" alt="PredictedPic" id="predictImage"class="image-fluid">
                       </div>
                     </div>
                   </div>
