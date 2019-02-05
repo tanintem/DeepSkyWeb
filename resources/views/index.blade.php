@@ -182,7 +182,7 @@
                         </label>
                         <div class="row">
                           <div class="offset-sm-1 col-sm-10">
-                            <input type="number" id="inputAddNextMin" value="0" min="0" max="60" step="10" />
+                            <input type="number" id="inputAddNextMin" value="10" min="0" max="60" step="10" />
                           </div>
                         </div>
                         <div class="row">

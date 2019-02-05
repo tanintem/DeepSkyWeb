@@ -120,8 +120,12 @@ function active_radio(){
 
     for(var i = 0; i < hour.length; i++) {
         hour[i].onclick = function () {
+            if(this.value==0&&select_minute==0){
+                $(minute).val(10)
+            }
             //console.log(this.value)
-            select_hour = this.value;
+            select_hour = parseInt(this.value);
+            console.log('hour='+select_hour)
             change_image(select_hour,select_minute)
             if(select_hour==3){
                 $(minute).val(0)
@@ -130,13 +134,16 @@ function active_radio(){
     }
     minute.onchange = function(){
         //console.log(this.value)
+        if(select_hour==0&&this.value==0){
+            $(this).val(10)
+        }
         if(select_minute==0 && this.value==0 &&select_hour>0){
             console.log(50);
             $(this).val(50);
             select_hour-=1;
             hour[select_hour].checked=true;
         }
-        if(this.value == 60 && select_hour<3){
+        if(this.value >50 && select_hour<3){
             $(this).val(0);
             select_hour+=1;
             hour[select_hour].checked=true;
