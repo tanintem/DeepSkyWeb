@@ -101,7 +101,7 @@
                         <img src="images/icon-s.png" style="max-height: 40px" class="d-none d-lg-inline" alt="icon">
                         Satellite Image
                       </h2>
-                      <h4 class="col-4 text-right align-text-bottom"> 10:00 UTC </h4>
+                      <h4 class="col-4 text-right align-text-bottom" id="CurrentTime"> 10:00 UTC </h4>
                     </div>
                     <div class="row pb-1">
                       <hr class="col-11" style="height: 1px; border: 0; border-top: 2px solid #ccc; color: #ccc;">
@@ -123,7 +123,7 @@
                         <img src="images/icon-c.png" style="max-height: 40px" class="d-none d-lg-inline" alt="icon">
                         Predicted Image
                       </h2>
-                      <h4 class="col-4 text-right align-text-bottom"> 10:00 UTC </h4>
+                      <h4 class="col-4 text-right align-text-bottom" id="PredictTime"> 10:00 UTC </h4>
                     </div>
                     <div class="row pb-1">
                       <hr class="col-11" style="height: 1px; border: 0; border-top: 2px solid #ccc; color: #ccc;">
@@ -236,6 +236,7 @@
     $("input[type='number']").inputSpinner()
     $("input.large").inputSpinner({ groupClass: "input-group-lg" })
     active_radio();
+    setTime();
   </script>
 </body>
 

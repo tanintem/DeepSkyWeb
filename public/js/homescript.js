@@ -111,12 +111,28 @@ function select_predict_ength(){
     window.location.href = "/newShow"+index_time+"-"+index_pred;
 }
 //for new UI
+
+function setTime(){
+    var time = new Date;
+    var hour = time.getUTCHours();
+    var min = time.getUTCMinutes();
+    min = min-(min%10);
+    var satelliteImgTime = hour.toString()+":"+min.toString()+" UTC";
+    var showCurrentTime = document.getElementById("CurrentTime");
+    showCurrentTime.innerText=satelliteImgTime;
+    return [hour,min]
+}
+
+
 function active_radio(){
+    var showTime = setTime();
+    var showPredHour = showTime[0];
+    var showPredMin = showTime[1];
     var hour = document.configControl.predictLength;
     var minute = document.getElementById("inputAddNextMin");
     minute.value=50;
     var select_hour = 0;
-    var select_minute = 0;
+    var select_minute = 10;
 
     for(var i = 0; i < hour.length; i++) {
         hour[i].onclick = function () {
@@ -130,6 +146,7 @@ function active_radio(){
             if(select_hour==3){
                 $(minute).val(0)
             }
+            changePredTime(showPredHour,showPredMin,select_hour,select_minute);
         };
     }
     minute.onchange = function(){
@@ -153,8 +170,20 @@ function active_radio(){
         }
         select_minute = this.value
         change_image(select_hour,select_minute)
-        
+        changePredTime(showPredHour,showPredMin,select_hour,select_minute);
     };
+    changePredTime(showPredHour,showPredMin,select_hour,select_minute);
+}
+
+function changePredTime(hour,min,nextHour,nextMin){
+    console.log(hour+":"+min+","+nextHour+":"+nextMin);
+    min =  parseInt(min)+parseInt(nextMin);
+    hour += nextHour+Math.floor(min/60);
+    min = min%60;
+    min = "0"+min.toString();
+    min = min.slice(-2);
+    var showPred_time = hour.toString()+":"+min+" UTC";
+    document.getElementById("PredictTime").innerText = showPred_time;
 }
 
 function change_image(hour,minute){
@@ -164,7 +193,5 @@ function change_image(hour,minute){
     prediction_image.src=src;
 }
 
-function setTime(){
-    var minute = document.getElementById("inputAddNextMin");
-    minute.value="50";
-}
+
+
