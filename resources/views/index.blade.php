@@ -130,7 +130,7 @@
                     </div>
                     <div class="row">
                       <div class="col-12">
-                        <img src="storage/next-0hr/0.jpg" alt="PredictedPic" id="predictImage"class="image-fluid">
+                        <img src="storage/next-0hr/10.jpg" alt="PredictedPic" id="predictImage"class="image-fluid">
                       </div>
                     </div>
                   </div>
