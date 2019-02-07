@@ -136,7 +136,7 @@ function active_radio(){
 
     for(var i = 0; i < hour.length; i++) {
         hour[i].onclick = function () {
-            if(this.value==0&&select_minute==0){
+            if(parseInt(this.value)==0&&select_minute==0){
                 $(minute).val(10)
             }
             //console.log(this.value)

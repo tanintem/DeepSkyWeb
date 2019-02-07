@@ -15,7 +15,7 @@
   <link href="css/style.css" rel="stylesheet" />
   <link href="css/meta-style.css" rel="stylesheet" />
   <link href="css/responsive.css" rel="stylesheet" />
-
+  <link href="css/modal.css" rel="stylesheet"/>
   <!--fonts google-->
   <link href="https://fonts.googleapis.com/css?family=PT+Sans:400,300,500,700" rel="stylesheet" type="text/css" />
   <!--
@@ -67,10 +67,10 @@
       <div class="collapse navbar-collapse flex-grow-1 text-right" id="myNavbar">
         <ul class="navbar-nav ml-auto flex-nowrap">
           <li class="nav-item">
-            <a href="#" class="nav-link m-2 menu-item nav-active">Our Solution</a>
+            <a href="#" class="nav-link m-2 menu-item nav-active" id='Soultion' onclick="show_architecture();">Our Architecture</a>
           </li>
           <li class="nav-item">
-            <a href="#" class="nav-link m-2 menu-item">How We Help</a>
+            <a href="#" class="nav-link m-2 menu-item">Credits</a>
           </li>
           <li class="nav-item">
             <a href="#" class="nav-link m-2 menu-item">Contact</a>
@@ -80,7 +80,16 @@
     </nav>
   </div>
   <!--/.HEADER END-->
-
+  <!-- modal zome -->
+  <div id="myModalArchitecture" class="modal">
+    <!-- Modal content -->
+    <div class="modal-content">
+      <span class="close" onclick="close_span();">&times;</span>
+      <h5>Our Architecture</h5>
+      <img src="images/architecture.png" alt="">
+    </div>
+  </div>
+  <!-- end modal -->
   <!--CONTENT WRAP-->
   <div class="content-wrap">
     <!--CONTENT-->
@@ -160,7 +169,7 @@
                             <div class="custom-control custom-radio">
                               <input type="radio" id="predictLength0" name="predictLength" class="custom-control-input" value= 0
                                 checked="checked">
-                              <label class="custom-control-label" for="predictLength0">Current time</label>
+                              <label class="custom-control-label" for="predictLength0">Next 0 hour</label>
                             </div>
                             <div class="custom-control custom-radio">
                               <input type="radio" id="predictLength1" name="predictLength" class="custom-control-input" value=1>
@@ -231,13 +240,19 @@
   <script src="js/smooth-scroll.min.js" type="text/javascript"></script>
   <script src="js/main.js" type="text/javascript"></script>
   <script src="js/homescript.js"></script>
-  
+  <script src="js/modal.js"></script>
   <script language="javascript" type="text/javascript">
     $("input[type='number']").inputSpinner()
     $("input.large").inputSpinner({ groupClass: "input-group-lg" })
     active_radio();
     setTime();
-  </script>
+
+    window.onclick = function(event) {
+      if (event.target == modal) {
+        modalArchitecture.style.display = "none";
+      }
+    }
+    </script>
 </body>
 
 </html>
