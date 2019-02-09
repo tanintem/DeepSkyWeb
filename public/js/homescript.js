@@ -26,6 +26,7 @@ function active_radio(){
         hour[i].onclick = function () {
             if(parseInt(this.value)==0&&select_minute==0){
                 $(minute).val(10)
+                select_minute =10;
             }
             //console.log(this.value)
             select_hour = parseInt(this.value);
@@ -42,6 +43,7 @@ function active_radio(){
         //console.log(this.value)
         if(select_hour==0&&this.value==0){
             $(this).val(10)
+            select_minute=10;
         }
         if(select_minute==0 && this.value==0 &&select_hour>0){
             console.log(50);
