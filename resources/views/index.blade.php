@@ -67,13 +67,13 @@
       <div class="collapse navbar-collapse flex-grow-1 text-right" id="myNavbar">
         <ul class="navbar-nav ml-auto flex-nowrap">
           <li class="nav-item">
-            <a href="#" class="nav-link m-2 menu-item nav-active" id='Soultion' onclick="show_architecture();">Our Architecture</a>
+            <a href="#" class="nav-link m-2 menu-item nav-active" onclick="show_architecture();">Our Architecture</a>
           </li>
           <li class="nav-item">
-            <a href="#" class="nav-link m-2 menu-item">Credits</a>
+            <a href="#" class="nav-link m-2 menu-item" onclick="show_credits();">Credits</a>
           </li>
           <li class="nav-item">
-            <a href="#" class="nav-link m-2 menu-item">Contact</a>
+            <a href="#" class="nav-link m-2 menu-item" onclick="show_help();">Help</a>
           </li>
         </ul>
       </div>
@@ -89,6 +89,31 @@
       <img src="images/architecture.png" alt="">
     </div>
   </div>
+  
+  <div id="Credits" class="modal">
+    <!-- Modal content -->
+    <div class="modal-content">
+      <span class="close" onclick="close_span();">&times;</span>
+      <h5>Reference</h5>
+        <a href="http://goo.gl/DEqS9j"  target="_blank">Related paper</a>
+        <br><br>
+      <h5>Data Source</h5>
+        <a href="http://www.data.jma.go.jp/mscweb/data/himawari/index.html" target="_blank">Meteorological Satellite Center(MSC) of JMA</a>
+    </div>
+  </div>
+  
+  <div id="Help" class="modal">
+    <!-- Modal content -->
+    <div class="modal-content">
+      <span class="close" onclick="close_span();">&times;</span>
+      <h5>ข้อตกลงในการใช้ซอฟต์เเวร์</h5>
+      <p>ซอฟต์แวร์นี้เป็นผลงานที่พัฒนาขึ้นโดย นายเฉลิมชัย กุลประวีณ์, นายธนินทร์ อิ่มอโนทัย และ นายณนนท์ นพรัตน์ ภาควิชาวิศวกรรมคอมพิวเตอร์ มหาวิทยาลัยเทคโนโลยีพระจอมเกล้าธนบุรี ภายใต้การดูแลของ ดร. อัญชลิสา แต้ตระกูล ภายใต้โครงการ ระบบปัญญาประดิษฐ์ทานายสภาพอากาศจากภาพถ่ายดาวเทียม ซึ่งสนับสนุนโดย ศูนย์เทคโนโลยีอิเล็กทรอนิกส์และคอมพิวเตอร์แห่งชาติ โดยมีวัตถุประสงค์เพื่อส่งเสริมให้นักเรียนและนักศึกษาได้เรียนรู้และฝึก ทักษะในการพัฒนาซอฟต์แวร์ ลิขสิทธิ์ของซอฟต์แวร์นี้จึงเป็นของผู้พัฒนา ซึ่งผู้พัฒนาได้อนุญาตให้ศูนย์เทคโนโลยีอิเล็กทรอนิกส์และคอมพิวเตอร์แห่ง ชาติ เผยแพร่ซอฟต์แวร์นี้ตาม “ต้นฉบับ” โดยไม่มีการแก้ไขดัดแปลงใด ๆ ทั้งสิ้น ให้แก่บุคคลทั่วไปได้ใช้เพื่อประโยชน์ส่วนบุคคลหรือประโยชน์ทางการศึกษาที่ ไม่มีวัตถุประสงค์ในเชิงพาณิชย์ โดยไม่คิดค่าตอบแทนการใช้ซอฟต์แวร์ ดังนั้น ศูนย์เทคโนโลยีอิเล็กทรอนิกส์และคอมพิวเตอร์แห่งชาติ จึงไม่มีหน้าที่ในการดูแล บารุงรักษา จัดการอบรมการใช้งาน หรือพัฒนาประสิทธิภาพซอฟต์แวร์ รวมทั้งไม่รับรองความถูกต้องหรือประสิทธิภาพการทางานของซอฟต์แวร์ ตลอดจนไม่รับประกันความเสียหายต่าง ๆ อันเกิดจากการใช้ซอฟต์แวร์นี้ทั้งสิ้น</p>
+      <br><br>
+      <h5>License Agreement</h5>
+      <p>This software is a work developed by Mr. Chalearmchai Kurapravee Mr.Tanin Imanothai and Mr.Nanont Noparat from King Mongkut’s University of Technology Thonburi under the provision of Dr. Unchalisa Taetragool under Artificial Intelligence application for cloud movement prediction from satellite image, which has been supported by the National Electronics and Computer Technology Center (NECTEC), in order to encourage pupils and students to learn and practice their skills in developing software. Therefore, the intellectual property of this software shall belong to the developer and the developer gives NECTEC a permission to distribute this software as an “as is ” and non-modified software for a temporary and non-exclusive use without remuneration to anyone for his or her own purpose or academic purpose, which are not commercial purposes. In this connection, NECTEC and SIPA shall not be responsible to the user for taking care, maintaining, training or developing the efficiency of this software. Moreover, NECTEC shall not be liable for any error, software efficiency and damages in connection with or arising out of the use of the software.</p>
+    </div>
+  </div>
+  
   <!-- end modal -->
   <!--CONTENT WRAP-->
   <div class="content-wrap">
@@ -248,8 +273,14 @@
     setTime();
 
     window.onclick = function(event) {
-      if (event.target == modal) {
+      if (event.target == modalArchitecture) {
         modalArchitecture.style.display = "none";
+      }
+      if (event.target == credits){
+        credits.style.display="none";
+      }
+      if (event.target == help){
+        help.style.display="none";
       }
     }
     </script>
