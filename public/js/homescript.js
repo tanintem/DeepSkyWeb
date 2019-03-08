@@ -21,6 +21,13 @@ function active_radio(){
     minute.value=50;
     var select_hour = 0;
     var select_minute = 10;
+    var band = document.configControl.band;
+
+    for(var i = 0; i<band.length; i++){
+        band[i].onclick = function(){
+            change_image(select_hour,select_minute);
+        }
+    }
 
     for(var i = 0; i < hour.length; i++) {
         hour[i].onclick = function () {
@@ -80,10 +87,16 @@ function changePredTime(hour,min,nextHour,nextMin){
 
 function change_image(hour,minute){
     var prediction_image = document.getElementById("predictImage");
-    var src = "/storage/next-"+hour+"hr/"+minute+".jpg";
+    var band = document.configControl.band;
+    var base = "/storage/";
+    var heavyRain = "/storage/heavy-rain/";
+    if(band[0].checked==true){
+        var src = base+"next-"+hour+"hr/"+minute+".jpg";
+    }
+    if(band[1].checked==true){
+        var src = heavyRain+"next-"+hour+"hr/"+minute+".jpg";
+    }
     console.log(src);
     prediction_image.src=src;
 }
-
-
 

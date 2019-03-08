@@ -218,11 +218,11 @@
                         <div class="row">
                           <div class="offset-sm-1 col-sm-11">
                               <div class="custom-control custom-radio">
-                                <input type="radio" id="cloud" name="cloud" class="custom-control-input" value= 0>
+                                <input type="radio" id="cloud" name="band" class="custom-control-input" value= 0 checked="checked">
                                 <label class="custom-control-label" for="cloud">cloud</label>
                               </div>
                               <div class="custom-control custom-radio">
-                                <input type="radio" id="heavyRain" name="heavyRain" class="custom-control-input" value= 0>
+                                <input type="radio" id="heavyRain" name="band" class="custom-control-input" value= 0>
                                 <label class="custom-control-label" for="heavyRain">heavy rain potential</label>
                               </div>
                             </div>
