@@ -95,10 +95,10 @@
     <div class="modal-content">
       <span class="close" onclick="close_span();">&times;</span>
       <h5>Reference</h5>
-        <a href="http://goo.gl/DEqS9j"  target="_blank">Related paper</a>
+        <a href="http://goo.gl/DEqS9j"  style="color:blue" target="_blank">Related paper</a>
         <br><br>
       <h5>Data Source</h5>
-        <a href="http://www.data.jma.go.jp/mscweb/data/himawari/index.html" target="_blank">Meteorological Satellite Center(MSC) of JMA</a>
+        <a href="http://www.data.jma.go.jp/mscweb/data/himawari/index.html" style="color:blue" target="_blank">Meteorological Satellite Center(MSC) of JMA</a>
     </div>
   </div>
   
