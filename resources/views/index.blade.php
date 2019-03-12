@@ -73,7 +73,7 @@
             <a href="#" class="nav-link m-2 menu-item" onclick="show_credits();">Credits</a>
           </li>
           <li class="nav-item">
-            <a href="#" class="nav-link m-2 menu-item" onclick="show_help();">Help</a>
+            <a href="#" class="nav-link m-2 menu-item" onclick="show_help();">TERM AND CONDITIONS</a>
           </li>
         </ul>
       </div>
@@ -102,7 +102,7 @@
     </div>
   </div>
   
-  <div id="TERM AND CONDITIONS" class="modal">
+  <div id="Help" class="modal">
     <!-- Modal content -->
     <div class="modal-content">
       <span class="close" onclick="close_span();">&times;</span>
