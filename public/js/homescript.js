@@ -5,7 +5,11 @@ function setTime(){
     var hour = time.getUTCHours();
     var min = time.getUTCMinutes();
     min = min-(min%10);
-    var satelliteImgTime = hour.toString()+":"+min.toString()+" UTC";
+    min = "0"+min.toString();
+    min = min.slice(-2);
+    var d = new Date();
+    var hour_local = d.getHours();
+    var satelliteImgTime = hour_local.toString()+":"+min.toString()+" Local";
     var showCurrentTime = document.getElementById("CurrentTime");
     showCurrentTime.innerText=satelliteImgTime;
     return [hour,min]
@@ -77,11 +81,14 @@ function active_radio(){
 function changePredTime(hour,min,nextHour,nextMin){
     console.log(hour+":"+min+","+nextHour+":"+nextMin);
     min =  parseInt(min)+parseInt(nextMin);
+    var d = new Date();
+    var hour_local = d.getHours();
+    hour = hour_local
     hour += nextHour+Math.floor(min/60);
     min = min%60;
     min = "0"+min.toString();
     min = min.slice(-2);
-    var showPred_time = hour.toString()+":"+min+" UTC";
+    var showPred_time = hour.toString()+":"+min+" Local";
     document.getElementById("PredictTime").innerText = showPred_time;
 }
 
