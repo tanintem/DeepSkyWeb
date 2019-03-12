@@ -42,12 +42,13 @@ function active_radio(){
             //console.log(this.value)
             select_hour = parseInt(this.value);
             console.log('hour='+select_hour)
-            change_image(select_hour,select_minute)
+            // change_image(select_hour,select_minute)
             if(select_hour==3){
                 $(minute).val(0)
                 select_minute=0;
             }
             changePredTime(showPredHour,showPredMin,select_hour,select_minute);
+            change_image(select_hour,select_minute)
         };
     }
     minute.onchange = function(){
@@ -72,8 +73,9 @@ function active_radio(){
             select_minute=0;
         }
         select_minute = this.value
-        change_image(select_hour,select_minute)
         changePredTime(showPredHour,showPredMin,select_hour,select_minute);
+        change_image(select_hour,select_minute)
+
     };
     changePredTime(showPredHour,showPredMin,select_hour,select_minute);
 }

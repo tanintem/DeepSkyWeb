@@ -102,7 +102,7 @@
     </div>
   </div>
   
-  <div id="Help" class="modal">
+  <div id="TERM AND CONDITIONS" class="modal">
     <!-- Modal content -->
     <div class="modal-content">
       <span class="close" onclick="close_span();">&times;</span>
@@ -212,6 +212,18 @@
                         </div>
                       </div>
                       <div class="form-group">
+                        <label for="inputAddNextMin" class="col-sm-12 col-form-label font-weight-bold"> and in next
+                        </label>
+                        <div class="row">
+                          <div class="offset-sm-1 col-sm-10">
+                            <input type="number" id="inputAddNextMin" value="10" min="0" max="60" step="10" />
+                          </div>
+                        </div>
+                        <div class="row">
+                          <p class="col-sm-11 text-right"> Minutes </p>
+                        </div>
+                      </div>
+                      <div class="form-group">
                         <label for="Modes" class="col-sm-12 col-form-label font-weight-bold">
                           Band
                         </label>
@@ -227,18 +239,6 @@
                               </div>
                             </div>
                           </div>
-                        </div>
-                      </div>
-                      <div class="form-group">
-                        <label for="inputAddNextMin" class="col-sm-12 col-form-label font-weight-bold"> and in next
-                        </label>
-                        <div class="row">
-                          <div class="offset-sm-1 col-sm-10">
-                            <input type="number" id="inputAddNextMin" value="10" min="0" max="60" step="10" />
-                          </div>
-                        </div>
-                        <div class="row">
-                          <p class="col-sm-11 text-right"> Minutes </p>
                         </div>
                       </div>
                     </form>
