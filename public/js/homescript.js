@@ -87,6 +87,9 @@ function changePredTime(hour,min,nextHour,nextMin){
     var hour_local = d.getHours();
     hour = hour_local
     hour += nextHour+Math.floor(min/60);
+    if(hour>24){
+        hour = hour-24;
+    }
     min = min%60;
     min = "0"+min.toString();
     min = min.slice(-2);
